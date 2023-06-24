@@ -1,0 +1,25 @@
+<div class="cartMenu" [ngClass]="cartShow ? 'cartMenuShow' : null">
+  <div class="closeCart" (click)="onCartClick()">x</div>
+  <h1>Cart</h1>
+  <div *ngFor="let item of cartItems" class="cartCard">
+    <img class="thumbnail" src="{{ item.thumbnail }}" alt="{{ item.title }}" />
+    <div class="cardInfo">
+      <p>{{ item.title }}</p>
+      <p>{{ item.price }}$</p>
+    </div>
+    <button (click)="onDeleteItem(item.id, item.price)" class="delete">
+      <img
+        src="https://img.icons8.com/?size=512&id=68064&format=png"
+        alt="trash"
+      />
+    </button>
+  </div>
+  <h2 class="emptyCart" *ngIf="cartItems.length === 0">Your cart is empty!</h2>
+  <div class="checkOptions">
+    <h3 class="total">TOTAL: {{ totalToPay }}$</h3>
+    <button>
+      GO TO CHECKOUT
+      <img src="https://img.icons8.com/?size=512&id=11759&format=png" alt=">" />
+    </button>
+  </div>
+</div>

@@ -16,6 +16,7 @@ import { NewComponent } from './new/new.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SingleProductComponent } from './single-product/single-product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SingleProductComponent } from './single-product/single-product.componen
     NewComponent,
     SearchPageComponent,
     SingleProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
