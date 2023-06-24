@@ -1,0 +1,11 @@
+<head>
+  <title>Deals</title>
+</head>
+
+<div class="Deals">
+  <h1>Deals!</h1>
+
+  <div class="cardsList">
+    <app-card *ngFor="let deal of deals" [data]="deal" />
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<head>
+  <title>Categories: {{ id }}</title>
+</head>
+
+<div class="Categories">
+  <h1>
+    Products for "<span [ngStyle]="{ color: '#fed903' }">{{ id }}</span
+    >"
+  </h1>
+
+  <div class="cardsList">
+    <app-card *ngFor="let prod of allProd" [data]="prod" />
+  </div>
+</div>

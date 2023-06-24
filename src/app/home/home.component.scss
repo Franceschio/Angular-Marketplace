@@ -1,0 +1,79 @@
+.Home {
+  margin: 100px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: 15vh 0vh 0px 0vh;
+
+  .filtri {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filtro {
+      font-size: 0.7em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #d6d6d6;
+      padding: 8px;
+      border-radius: 12px;
+      position: relative;
+      outline: none;
+
+      option {
+        max-width: 60px;
+      }
+
+      img {
+        width: 20%;
+        height: 20px;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .cardList {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .Home {
+    margin: 8vh 10vw 0px 10vw;
+
+    .filtri {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 30px;
+      .filtro {
+        display: flex;
+        font-size: auto;
+        min-width: 80px;
+
+        img {
+          width: 25%;
+          height: 20px;
+        }
+      }
+    }
+
+    .cardList {
+      justify-content: space-between;
+    }
+  }
+}

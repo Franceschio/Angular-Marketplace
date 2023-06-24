@@ -1,0 +1,46 @@
+<head>
+  <title>product: {{ prodData.title }}</title>
+</head>
+
+<div class="singleProduct">
+  <div class="thumbContainer">
+    <div class="thumbnail">
+      <p *ngIf="prodData.discountPercentage >= 15" class="discount">
+        -{{ prodData.discountPercentage }}%
+      </p>
+      <img src="{{ thumbImage }}" alt="{{ prodData.title }}" />
+    </div>
+    <ul class="thumbSelection">
+      <li
+        [ngStyle]="{
+          border:
+            actualThumb === image ? '2px solid #015310' : '2px solid #bcbcbc'
+        }"
+        (mouseenter)="setImg(image)"
+        (click)="setImg(image)"
+        *ngFor="let image of prodData.images; index as i"
+      >
+        <img src="{{ image }}" alt="image number: {{ i }}" />
+      </li>
+    </ul>
+  </div>
+  <div class="details">
+    <h2>{{ prodData.title }}</h2>
+    <span class="infos"
+      >Brand: {{ prodData.brand }} | Category: {{ prodData.category }} | Stocks:
+      {{ prodData.stock }}</span
+    >
+    <h2 *ngIf="prodData.discountPercentage < 15" class="price">
+      {{ prodData.price }}<span [ngStyle]="{ color: '#f1cd00' }">$</span>
+    </h2>
+    <h2 *ngIf="prodData.discountPercentage >= 15" class="price">
+      <span class="oldPrice">
+        {{ prodData.price
+        }}<span [ngStyle]="{ color: '#f1cd00' }">$</span></span
+      >
+      <span>{{ discount }}<span [ngStyle]="{ color: '#f1cd00' }">$</span></span>
+    </h2>
+    <p class="description">{{ prodData.description }}</p>
+    <button (click)="onAddCart()" class="actionBtn">ADD TO CART</button>
+  </div>
+</div>

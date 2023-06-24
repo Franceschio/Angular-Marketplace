@@ -1,0 +1,20 @@
+<head>
+  <title>Search</title>
+</head>
+
+<div class="searchPage">
+  <div *ngIf="searchedProd.length > 0" class="searched">
+    <h1>Products that includes "{{ this.dataCont.searchCont }}"</h1>
+    <div class="cardsList">
+      <app-card *ngFor="let prod of searchedProd" [data]="prod" />
+    </div>
+  </div>
+
+  <h1
+    *ngIf="searchedProd.length === 0"
+    [ngStyle]="{ color: 'red', alignSelf: 'center', marginTop: '40vh' }"
+    class="nothing"
+  >
+    This product doesn't exist.
+  </h1>
+</div>

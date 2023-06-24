@@ -1,0 +1,11 @@
+<head>
+  <title>New products</title>
+</head>
+
+<div class="New">
+  <h1>New products</h1>
+
+  <div class="cardsList">
+    <app-card *ngFor="let new of newProds" [data]="new" />
+  </div>
+</div>

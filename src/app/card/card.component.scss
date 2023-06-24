@@ -1,0 +1,142 @@
+@import "../../sass/variables";
+
+.Card {
+  width: 280px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1.4px solid #dededed9;
+  background-color: #397957;
+  position: relative;
+
+  .discount {
+    color: black;
+    font-size: 0.8em;
+    align-self: self-start;
+    font-size: 0.7em;
+    background-color: $special-color;
+    padding: 4px;
+    border-radius: 6px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+  }
+
+  .productImg {
+    height: 60%;
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #dededed9;
+    cursor: pointer;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transition: 0.3s;
+    }
+  }
+
+  &:hover {
+    .productImg {
+      img {
+        transform: translate(-8%, -8%);
+        height: 120%;
+        width: 120%;
+      }
+    }
+  }
+
+  .productInfo {
+    display: flex;
+    gap: 2%;
+    height: 40%;
+    width: 100%;
+    padding: 10px 10px 0px 10px;
+
+    h3,
+    h4 {
+      color: white;
+    }
+    a {
+      text-decoration: none;
+      h4 {
+        transition: 0.3s;
+        &:hover {
+          color: $hover-color;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .details {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 7%;
+
+      p {
+        font-size: 0.7em;
+        color: #bebebe;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 0.5em;
+
+        img {
+          height: 10px;
+          width: 10px;
+          object-fit: contain;
+        }
+      }
+
+      .btnAcquisto {
+        font-weight: bold;
+        padding: 6px;
+        border-radius: 14px;
+        max-width: 50%;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        color: white;
+        background-color: #00b828;
+        box-shadow: 0.5px 0.5px 0.8px #dededed9;
+        user-select: none;
+        margin-top: 5px;
+
+        &:hover {
+          background-color: #15b660;
+          box-shadow: -0.5px 0.5px 0.8px #dededed9;
+        }
+
+        &:active {
+          transform: translate(-8px, 2px) scale(0.9);
+        }
+      }
+    }
+
+    .price {
+      width: 20%;
+      font-size: 0.8em;
+      display: flex;
+      justify-content: center;
+      gap: 2%;
+
+      h3 {
+        display: flex;
+      }
+    }
+  }
+}

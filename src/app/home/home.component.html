@@ -1,0 +1,35 @@
+<head>
+  <title>Home</title>
+</head>
+
+<div class="Home">
+  <app-hero />
+  <div class="filtri">
+    <label>Filter by:</label>
+    <select (change)="onCatChange($event)" class="filtro">
+      <option value="All categories">All categories</option>
+      <option *ngFor="let categoria of categorie" value="{{ categoria }}">
+        {{ categoria }}
+      </option>
+    </select>
+    <select (change)="onPriceChange($event)" class="filtro">
+      <option value="all prices">All prices</option>
+      <option *ngFor="let prezzo of prezzi" value="{{ prezzo }}">
+        < {{ prezzo }}
+      </option>
+    </select>
+    <select
+      (change)="onBrandChange($event)"
+      [ngStyle]="{ width: '100px' }"
+      class="filtro"
+    >
+      <option value="all brands">All brands</option>
+      <option *ngFor="let brand of brands" value="{{ brand }}">
+        {{ brand }}
+      </option>
+    </select>
+  </div>
+  <div class="cardList">
+    <app-card *ngFor="let prodotto of prodottiFiltrati" [data]="prodotto" />
+  </div>
+</div>

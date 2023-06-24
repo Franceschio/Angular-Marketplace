@@ -1,0 +1,25 @@
+.New {
+  margin: 100px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: 15vh 0vh 0px 0vh;
+
+  .cardsList {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .New {
+    margin: 15vh 10vh 0px 10vh;
+
+    .cardsList {
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+<div class="Header">
+  <div class="aboutProd">
+    <span>
+      <a routerLink="/"
+        ><img
+          src="https://img.icons8.com/?size=512&id=2797&format=png"
+          alt="Home"
+        /> </a
+    ></span>
+    <div class="selectCategory">
+      <div class="value">
+        <span>Popular categories</span
+        ><img
+          src="https://img.icons8.com/?size=512&id=J06ewdFPUGno&format=png"
+        />
+      </div>
+      <div class="categories">
+        <h3>Most popular</h3>
+        <div class="popCat">
+          <a routerLink="/categories/smartphones"> smartphones </a>
+        </div>
+        <div class="popCat">
+          <a routerLink="/categories/automotive"> automotive </a>
+        </div>
+        <div class="popCat">
+          <a routerLink="/categories/laptops">laptops</a>
+        </div>
+        <div class="popCat">
+          <a routerLink="/categories/sunglasses">sunglasses </a>
+        </div>
+      </div>
+    </div>
+    <span>
+      <a routerLink="/new">
+        <img src="https://img.icons8.com/?size=512&id=31151&format=png" />
+        What's new</a
+      ></span
+    >
+    <span>
+      <a routerLink="/deals">
+        <img
+          src="https://img.icons8.com/?size=512&id=QVze7Q6piJLe&format=png"
+        />
+        Deals</a
+      ></span
+    >
+  </div>
+  <div class="aboutUser">
+    <form
+      class="searchbar"
+      (click)="hamburgerShow ? onHamburgerClick() : null"
+      (submit)="onSearch($event)"
+    >
+      <input [formControl]="search" type="text" placeholder="search..." />
+      <img src="https://img.icons8.com/?size=512&id=132&format=png" />
+    </form>
+    <span>
+      <img src="https://img.icons8.com/?size=512&id=98957&format=png" />
+      User</span
+    >
+    <span (click)="onCartClick()">
+      <img src="https://img.icons8.com/?size=512&id=59997&format=png" />
+      Cart</span
+    >
+  </div>
+  <div (click)="onHamburgerClick()" class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <div class="hamburgerMenu" [ngClass]="{ menuActive: hamburgerShow }">
+    <div (click)="onHamburgerClick()" class="hamburgerIn">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <span>
+      <a (click)="onHamburgerClick()" routerLink="/">
+        <img
+          src="https://img.icons8.com/?size=512&id=2797&format=png"
+          alt="Home"
+        />
+        Home</a
+      ></span
+    >
+    <span>
+      <a (click)="onHamburgerClick()" routerLink="/">
+        <img src="https://img.icons8.com/?size=512&id=98957&format=png" />
+        User</a
+      ></span
+    >
+    <span>
+      <a (click)="onCartClick()">
+        <img src="https://img.icons8.com/?size=512&id=59997&format=png" />
+        Cart</a
+      ></span
+    ><span>
+      <a (click)="onHamburgerClick()" routerLink="/new">
+        <img src="https://img.icons8.com/?size=512&id=31151&format=png" />
+        What's new</a
+      ></span
+    >
+    <span>
+      <a (click)="onHamburgerClick()" routerLink="/deals">
+        <img
+          src="https://img.icons8.com/?size=512&id=QVze7Q6piJLe&format=png"
+        />
+        Deals</a
+      ></span
+    >
+  </div>
+  <div class="cartMenu" [ngClass]="cartShow ? 'cartMenuShow' : null">
+    <div class="closeCart" (click)="onCartClick()">x</div>
+    <h1>Cart</h1>
+    <div *ngFor="let item of cartItems" class="cartCard">
+      <img
+        class="thumbnail"
+        src="{{ item.thumbnail }}"
+        alt="{{ item.title }}"
+      />
+      <div class="cardInfo">
+        <p>{{ item.title }}</p>
+        <p>{{ item.price }}$</p>
+      </div>
+      <button (click)="onDeleteItem(item.id, item.price)" class="delete">
+        <img
+          src="https://img.icons8.com/?size=512&id=68064&format=png"
+          alt="trash"
+        />
+      </button>
+    </div>
+    <h2 class="emptyCart" *ngIf="cartItems.length === 0">
+      Your cart is empty!
+    </h2>
+    <div class="checkOptions">
+      <h3 class="total">TOTAL: {{ totalToPay }}$</h3>
+      <button>
+        GO TO CHECKOUT
+        <img
+          src="https://img.icons8.com/?size=512&id=11759&format=png"
+          alt=">"
+        />
+      </button>
+    </div>
+  </div>
+</div>

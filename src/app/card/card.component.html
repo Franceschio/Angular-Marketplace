@@ -1,0 +1,110 @@
+<div class="Card">
+  <p *ngIf="data.discountPercentage >= 15" class="discount">
+    -{{ data.discountPercentage }}%
+  </p>
+  <div class="productImg">
+    <a routerLink="/product/{{ data.id }}">
+      <img src="{{ data.thumbnail }}" alt="prodotto"
+    /></a>
+  </div>
+  <div class="productInfo">
+    <div class="details">
+      <a routerLink="/product/{{ data.id }}">
+        <h4>
+          {{ data.title.slice(0, 25)
+          }}{{ data.title.length > 25 ? "..." : null }}
+        </h4>
+      </a>
+      <p>{{ data.brand }}, {{ data.category }}, {{ data.stock }} Stock</p>
+      <div class="rating" *ngIf="data.rating >= 1 && data.rating < 2">
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <span [ngStyle]="{ color: '#bebebe' }">({{ data.rating }})</span>
+      </div>
+      <div class="rating" *ngIf="data.rating >= 2 && data.rating < 3">
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <span [ngStyle]="{ color: '#bebebe' }">({{ data.rating }})</span>
+      </div>
+      <div class="rating" *ngIf="data.rating >= 3 && data.rating < 4">
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <span [ngStyle]="{ color: '#bebebe' }">({{ data.rating }})</span>
+      </div>
+      <div class="rating" *ngIf="data.rating >= 4 && data.rating < 5">
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <span [ngStyle]="{ color: '#bebebe' }">({{ data.rating }})</span>
+      </div>
+      <div class="rating" *ngIf="data.rating >= 5">
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <img
+          src="https://img.icons8.com/?size=512&id=8ggStxqyboK5&format=png"
+          alt="star"
+        />
+        <span [ngStyle]="{ color: '#bebebe' }">({{ data.rating }})</span>
+      </div>
+      <div (click)="onAddCart()" class="btnAcquisto">Add to cart</div>
+    </div>
+    <div class="price">
+      <h3>
+        <span
+          [ngStyle]="{
+            fontSize: '0.7em',
+            color: '#fed903',
+            alignSelf: 'flex-start'
+          }"
+          >$</span
+        >
+        {{ data.price }}
+      </h3>
+    </div>
+  </div>
+</div>
